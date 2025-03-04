@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +7,19 @@
     <title>Welcome to Our Learning Platform</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: 'Comic Sans MS', sans-serif;
+        /* Make sure the body and html take up the full height of the viewport */
+        html, body {
+            height: 100%;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Comic Sans MS', sans-serif; /* Using a more universal font for readability */
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1; /* Make the main content area take up the remaining space */
         }
 
         /* Navigation Bar */
@@ -27,12 +36,12 @@
         nav ul {
             display: flex;
             justify-content: center;
-            gap: 0px;
+            gap: -20px;
             list-style-type: none;
             margin: 0;
         }
         nav ul li {
-            padding: 8px 20px;
+            padding: 4px 15px;
         }
         nav ul li a {
             color: white;
@@ -59,14 +68,19 @@
         }
 
         /* Feature Section (3 Columns, 2 Rows) */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 20px;
-            padding: 30px;
-            margin-top: 20px;
+        .features-wrapper {
+            display: flex;
+            overflow: hidden; /* Hide the overflow to only show the scrolling part */
+            width: 100%;
+            justify-content: flex-start;
         }
+
+        .features {
+            display: flex;
+            gap: 20px;
+            animation: scroll-left 30s linear infinite; /* Animation for infinite scrolling */
+        }
+
         .feature-card {
             background-color: #fff;
             border-radius: 10px;
@@ -77,12 +91,23 @@
             flex-direction: column;
             justify-content: space-between;
             height: 250px; /* Increased height to ensure content fits */
+            width: 300px; /* Set fixed width for consistency */
             transition: all 0.3s ease-in-out;
             text-decoration: none; /* Remove underlines */
+            overflow: hidden; /* Ensure that overflow text or image does not escape the container */
         }
         .feature-card:hover {
             transform: scale(1.05);
         }
+
+        /* Image in Feature Cards */
+        .feature-card img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover; /* Ensures the image fills the area without distortion */
+            border-radius: 10px;
+        }
+
         .feature-card h3 {
             font-size: 1.5em;
             margin-bottom: 15px;
@@ -108,14 +133,28 @@
 
         /* Footer */
         footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
             width: 100%;
             background-color: #333;
             color: white;
             text-align: center;
             padding: 10px;
+            position: relative;
+            bottom: 0;
+        }
+
+        /* Animation for Infinite Scroll */
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%); /* Move it all the way left */
+            }
+        }
+
+        /* Clone the items for a seamless loop */
+        .features.clone {
+            margin-left: 100%; /* Ensure the cloned items start after the original */
         }
 
         /* Responsive Design */
@@ -131,73 +170,121 @@
     <!-- Navigation Bar -->
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="learn.html">Learn Now</a></li>
-            <li><a href="games.html">Let's Play</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="stories.html">Story</a></li>
-            <li><a href="hear-speak.html">Hear & Speak</a></li>
-            <li><a href="settings.html">More</a></li>
-            <li><a href="parents.html">Parental Guides</a></li>
-            <li><a href="meeting.html">Connect</a></li>
-            <li><a href="doctor.html">Doctor</a></li>
+            <li><a href="index.html" aria-label="Home">Home</a></li>
+            <li><a href="learn.html" aria-label="Learn Now">Learn Now</a></li>
+            <li><a href="games.html" aria-label="Let's Play">Let's Play</a></li>
+            <li><a href="dashboard.html" aria-label="Dashboard">Dashboard</a></li>
+            <li><a href="stories.html" aria-label="Story">Story</a></li>
+            <li><a href="hear-speak.html" aria-label="Hear & Speak">Hear & Speak</a></li>
+            <li><a href="settings.html" aria-label="More">More</a></li>
+            <li><a href="parents.html" aria-label="Parental Guides">Parental Guides</a></li>
+            <li><a href="meeting.html" aria-label="Connect">Connect</a></li>
+            <li><a href="doctor.html" aria-label="Doctor">Doctor</a></li>
         </ul>
     </nav>
 
     <!-- Main Content -->
-    <div class="content">
+    <main class="content">
         <h1>Welcome to Our Learning Platform</h1>
         <p>Interactive learning activities for children, focusing on basic education, emotional skills, and more!</p>
 
         <!-- Feature Section (3 Columns, 2 Rows) -->
-        <div class="features">
-            <!-- Link to Alphabet & Words page -->
-            <a href="alphabet.html" class="feature-card">
-                <h3>📖 Alphabet & Words</h3>
-                <p>Learn the alphabet and simple words.</p>
-                <button>Start Learning</button>
-            </a>
+        <section class="features-wrapper">
+            <div class="features">
+                <!-- Feature Cards with Images -->
+                <a href="alphabet.html" class="feature-card" aria-label="Learn Alphabet & Words">
+                    <img src="https://via.placeholder.com/300x150?text=Alphabet+Learning" alt="Alphabet Image">
+                    <h3>📖 Alphabet & Words</h3>
+                    <p>Learn the alphabet and simple words.</p>
+                    <button>Start Learning</button>
+                </a>
 
-            <!-- Link to Numbers & Counting page -->
-            <a href="number.html" class="feature-card">
-                <h3>🔢 Numbers & Counting</h3>
-                <p>Practice counting and number recognition.</p>
-                <button>Start Learning</button>
-            </a>
+                <a href="number.html" class="feature-card" aria-label="Learn Numbers & Counting">
+                    <img src="https://via.placeholder.com/300x150?text=Number+Learning" alt="Number Learning">
+                    <h3>🔢 Numbers & Counting</h3>
+                    <p>Practice counting and number recognition.</p>
+                    <button>Start Learning</button>
+                </a>
 
-            <!-- Link to Shapes & Colors page -->
-            <a href="shapes.html" class="feature-card">
-                <h3>🔺 Shapes & Colors</h3>
-                <p>Identify and learn about different shapes and colors.</p>
-                <button>Start Learning</button>
-            </a>
+                <a href="shapes.html" class="feature-card" aria-label="Learn Shapes & Colors">
+                    <img src="https://via.placeholder.com/300x150?text=Shapes+Learning" alt="Shapes Learning">
+                    <h3>🔺 Shapes & Colors</h3>
+                    <p>Identify and learn about different shapes and colors.</p>
+                    <button>Start Learning</button>
+                </a>
 
-            <!-- Link to Speech & Language page -->
-            <a href="speech.html" class="feature-card">
-                <h3>🗣️ Speech & Language</h3>
-                <p>Learn pronunciation and improve communication.</p>
-                <button>Start Learning</button>
-            </a>
+                <a href="speech.html" class="feature-card" aria-label="Learn Speech & Language">
+                    <img src="https://via.placeholder.com/300x150?text=Speech+Learning" alt="Speech Learning">
+                    <h3>🗣️ Speech & Language</h3>
+                    <p>Learn pronunciation and improve communication.</p>
+                    <button>Start Learning</button>
+                </a>
 
-            <!-- Link to Tracing Activities page -->
-            <a href="tracing.html" class="feature-card">
-                <h3>✍ Tracing Activities</h3>
-                <p>Practice tracing letters, numbers, and shapes.</p>
-                <button>Start Learning</button>
-            </a>
+                <a href="tracing.html" class="feature-card" aria-label="Tracing Activities">
+                    <img src="https://via.placeholder.com/300x150?text=Tracing+Activities" alt="Tracing Activities">
+                    <h3>✍ Tracing Activities</h3>
+                    <p>Practice tracing letters, numbers, and shapes.</p>
+                    <button>Start Learning</button>
+                </a>
 
-            <!-- Link to Social & Emotional Play page -->
-            <a href="social-emotional-play.html" class="feature-card">
-                <h3>🎭 Social & Emotional Play</h3>
-                <p>Develop social and emotional skills through play.</p>
-                <button>Start Playing</button>
-            </a>
-        </div>
-    </div>
+                <a href="social-emotional-play.html" class="feature-card" aria-label="Social & Emotional Play">
+                    <img src="https://via.placeholder.com/300x150?text=Social+Play" alt="Social Play">
+                    <h3>🎭 Social & Emotional Play</h3>
+                    <p>Develop social and emotional skills through play.</p>
+                    <button>Start Playing</button>
+                </a>
+            </div>
+
+            <!-- Clone the Features for seamless effect -->
+            <div class="features clone">
+                <a href="alphabet.html" class="feature-card" aria-label="Learn Alphabet & Words">
+                    <img src="https://via.placeholder.com/300x150?text=Alphabet+Learning" alt="Alphabet Image">
+                    <h3>📖 Alphabet & Words</h3>
+                    <p>Learn the alphabet and simple words.</p>
+                    <button>Start Learning</button>
+                </a>
+
+                <a href="number.html" class="feature-card" aria-label="Learn Numbers & Counting">
+                    <img src="https://via.placeholder.com/300x150?text=Number+Learning" alt="Number Learning">
+                    <h3>🔢 Numbers & Counting</h3>
+                    <p>Practice counting and number recognition.</p>
+                    <button>Start Learning</button>
+                </a>
+
+                <a href="shapes.html" class="feature-card" aria-label="Learn Shapes & Colors">
+                    <img src="https://via.placeholder.com/300x150?text=Shapes+Learning" alt="Shapes Learning">
+                    <h3>🔺 Shapes & Colors</h3>
+                    <p>Identify and learn about different shapes and colors.</p>
+                    <button>Start Learning</button>
+                </a>
+
+                <a href="speech.html" class="feature-card" aria-label="Learn Speech & Language">
+                    <img src="https://via.placeholder.com/300x150?text=Speech+Learning" alt="Speech Learning">
+                    <h3>🗣️ Speech & Language</h3>
+                    <p>Learn pronunciation and improve communication.</p>
+                    <button>Start Learning</button>
+                </a>
+
+                <a href="tracing.html" class="feature-card" aria-label="Tracing Activities">
+                    <img src="https://via.placeholder.com/300x150?text=Tracing+Activities" alt="Tracing Activities">
+                    <h3>✍ Tracing Activities</h3>
+                    <p>Practice tracing letters, numbers, and shapes.</p>
+                    <button>Start Learning</button>
+                </a>
+
+                <a href="social-emotional-play.html" class="feature-card" aria-label="Social & Emotional Play">
+                    <img src="https://via.placeholder.com/300x150?text=Social+Play" alt="Social Play">
+                    <h3>🎭 Social & Emotional Play</h3>
+                    <p>Develop social and emotional skills through play.</p>
+                    <button>Start Playing</button>
+                </a>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Learning Platform. All rights reserved.</p>
+        <p>&copy; 2025 Learning Platform. All Rights Reserved.</p>
     </footer>
 
 </body>

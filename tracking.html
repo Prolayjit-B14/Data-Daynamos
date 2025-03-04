@@ -12,29 +12,68 @@
             background-color: #f9f9f9;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
         }
+
         h1 {
             color: #333;
             font-size: 2.5em;
             margin-top: 20px;
         }
-        .container {
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
             display: flex;
             justify-content: center;
-            flex-direction: column;
-            gap: 20px;
-            padding: 40px;
+            background-color: #333;
+            padding: 15px;
         }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        /* Container for Cards */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 200px); /* 4 cards in a row */
+            gap: 30px; /* Increased gap between cards */
+            justify-content: center;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
         .activity-card {
-            width: 80%;
+            width: 200px; /* Square card */
+            height: 200px;
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
         }
+
         .back-button {
-            margin-top: 20px;
             padding: 12px 25px;
             font-size: 18px;
             font-weight: bold;
@@ -45,17 +84,39 @@
             cursor: pointer;
             transition: 0.3s;
             text-decoration: none;
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px; /* Added margin bottom to create a gap */
         }
+
         .back-button:hover {
             background: #555;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-top: auto; /* Push the footer to the bottom */
         }
     </style>
 </head>
 <body>
 
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="activity-tracking.html">Activity Tracking</a>
+        <a href="dashboard.html">Dashboard</a>
+    </div>
+
     <h1>📌 Activity Tracking</h1>
     <p>Track your completed learning activities.</p>
 
+    <!-- Activity Cards Container -->
     <div class="container">
         <div class="activity-card">
             <h3>Alphabet Practice</h3>
@@ -65,9 +126,22 @@
             <h3>Number Counting</h3>
             <p>Completed: 4 activities</p>
         </div>
-
-        <a href="dashboard.html" class="back-button">🔙 Back to Dashboard</a>
+        <div class="activity-card">
+            <h3>Science Experiment</h3>
+            <p>Completed: 3 activities</p>
+        </div>
+        <div class="activity-card">
+            <h3>Reading Skills</h3>
+            <p>Completed: 6 activities</p>
+        </div>
     </div>
+
+    <a href="dashboard.html" class="back-button">🔙 Back to Dashboard</a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Activity Tracker. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>

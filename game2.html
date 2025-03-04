@@ -3,22 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word Scramble Game</title>
+    <title>Word Scramble Game for Kids</title>
     <style>
-        /* General Body Styles */
+        /* General Styles */
         body {
             font-family: 'Comic Sans MS', sans-serif;
             background-color: #f9f9f9;
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             height: 100vh;
             color: #333;
         }
 
-        /* Main container style (smaller size for child-friendly focus) */
+        /* Navbar Styles */
+        .navbar {
+            width: 100%;
+            background-color: #ff6347;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.5em;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Main container */
         .container {
             width: 90%;
             max-width: 400px;
@@ -32,19 +43,16 @@
             gap: 15px;
         }
 
-        /* Title style (colorful, playful) */
         h3 {
-            font-size: 2.2em;
-            color: #ff6347; /* Tomato red */
-            margin-bottom: 10px;
+            font-size: 2em;
+            color: #ff6347;
         }
 
-        /* Word display and hint styling */
         #word-display {
-            font-size: 2.5em;
+            font-size: 2em;
             font-weight: bold;
-            color: #ff6347; /* Tomato red */
-            background-color: #f0f8ff; /* Light blue background */
+            color: #ff6347;
+            background-color: #f0f8ff;
             padding: 15px;
             border-radius: 10px;
             display: inline-block;
@@ -52,13 +60,11 @@
         }
 
         #hint {
-            color: #4682b4; /* Steel blue */
+            color: #4682b4;
             font-size: 1.2em;
-            margin-top: 10px;
             font-weight: bold;
         }
 
-        /* Image container */
         .image-container {
             margin-top: 20px;
         }
@@ -67,10 +73,9 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            border: 4px solid #ff6347; /* Border to match the theme */
+            border: 4px solid #ff6347;
         }
 
-        /* Input field styling */
         #user-input {
             width: 100%;
             padding: 12px;
@@ -78,15 +83,8 @@
             margin-top: 20px;
             border: 2px solid #ff6347;
             border-radius: 10px;
-            outline: none;
-            transition: border 0.3s ease;
         }
 
-        #user-input:focus {
-            border-color: #4682b4; /* Focus border to match hint color */
-        }
-
-        /* Button styling */
         .buttons {
             display: flex;
             justify-content: space-between;
@@ -97,36 +95,31 @@
             padding: 15px 30px;
             font-size: 1.3em;
             color: white;
-            background-color: #ff6347; /* Tomato red */
+            background-color: #ff6347;
             border: none;
             border-radius: 15px;
             cursor: pointer;
-            transition: background-color 0.3s;
-            flex: 1;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         }
 
         .btn:hover {
-            background-color: #ff4500; /* Darker red on hover */
+            background-color: #ff4500;
         }
 
-        /* Message styling */
-        #message {
-            font-size: 1.5em;
-            font-weight: bold;
+        /* Footer */
+        .footer {
+            width: 100%;
+            background-color: #ff6347;
+            padding: 10px 0;
+            text-align: center;
+            color: white;
+            font-size: 1em;
             margin-top: 20px;
-        }
-
-        .correct {
-            color: #28a745; /* Green for correct */
-        }
-
-        .incorrect {
-            color: #dc3545; /* Red for incorrect */
         }
     </style>
 </head>
 <body>
+    <div class="navbar">Word Scramble for Kids</div>
+
     <div class="container">
         <h3>Word Scramble Game</h3>
         <p>Unscramble the word below:</p>
@@ -144,15 +137,15 @@
         <p id="message"></p>
     </div>
 
+    <div class="footer">&copy; 2025 Kids Learning Fun</div>
+
     <script>
         const words = [
-            { word: "javascript", hint: "A popular programming language.", image: "./assets/javascript.png" },
-            { word: "developer", hint: "A person who writes code.", image: "./assets/developer.png" },
-            { word: "function", hint: "A reusable block of code.", image: "./assets/function.png" },
-            { word: "variable", hint: "A container for storing data.", image: "./assets/variable.png" },
-            { word: "backend", hint: "The server-side of a web application.", image: "./assets/backend.png" },
-            { word: "frontend", hint: "The client-side of a web application.", image: "./assets/frontend.png" },
-            { word: "database", hint: "A structured way to store data.", image: "./assets/database.png" }
+            { word: "cat", hint: "A small furry pet", image: "./assets/cat.png" },
+            { word: "dog", hint: "Man's best friend", image: "./assets/dog.png" },
+            { word: "sun", hint: "Shines bright in the sky", image: "./assets/sun.png" },
+            { word: "car", hint: "It has wheels and goes vroom!", image: "./assets/car.png" },
+            { word: "tree", hint: "It has leaves and gives shade", image: "./assets/tree.png" }
         ];
         
         let index = 0;
@@ -171,12 +164,10 @@
             let userInput = document.getElementById("user-input").value.toLowerCase();
             if (userInput === words[index].word) {
                 document.getElementById("message").innerText = "Correct! 🎉";
-                document.getElementById("message").classList.add("correct");
-                document.getElementById("message").classList.remove("incorrect");
+                document.getElementById("message").style.color = "green";
             } else {
                 document.getElementById("message").innerText = "Try again! ❌";
-                document.getElementById("message").classList.add("incorrect");
-                document.getElementById("message").classList.remove("correct");
+                document.getElementById("message").style.color = "red";
             }
         });
         

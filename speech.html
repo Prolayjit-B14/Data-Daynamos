@@ -12,12 +12,39 @@
             background-color: #f9f9f9;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
+
+        /* Navbar Styles */
+        .navbar {
+            background: #333;
+            padding: 10px 0;
+            text-align: center;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            background: #555;
+            border-radius: 5px;
+        }
+
+        /* Main Content */
         h1 {
             color: #333;
             font-size: 2.5em;
             margin-top: 20px;
         }
+
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -26,7 +53,9 @@
             padding: 20px;
             max-width: 90%;
             margin: auto;
+            flex-grow: 1;
         }
+
         .card {
             width: 150px;
             height: 100px;
@@ -40,18 +69,26 @@
             cursor: pointer;
             transition: transform 0.3s, background 0.3s;
         }
+
         .card:hover {
             transform: scale(1.2);
             background: #4caf50 !important;
         }
+
         .greeting { background: #ff6b6b; }
         .question { background: #6bcbff; }
         .emotion { background: #ffb86b; }
         .polite { background: #8a7ff7; }
         .animal { background: #f7d746; }
         .food { background: #1abc9c; }
+
+        /* Back Button */
+        .button-container {
+            margin: 30px 0; /* Adds spacing before and after */
+            text-align: center;
+        }
+
         .back-button {
-            margin-top: 20px;
             padding: 12px 25px;
             font-size: 18px;
             font-weight: bold;
@@ -64,12 +101,32 @@
             text-decoration: none;
             display: inline-block;
         }
+
         .back-button:hover {
             background: #555;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            margin-top: auto;
         }
     </style>
 </head>
 <body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="learn.html">Learn</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
 
     <h1>🗣️ Learn Speech & Language!</h1>
     <p>Click on a word to hear its pronunciation.</p>
@@ -88,7 +145,15 @@
         <div class="card food" onclick="speak('Banana')">Banana 🍌</div>
     </div>
 
-    <a href="learn.html" class="back-button">🔙 Back to Learn</a>
+    <!-- Back Button with proper spacing -->
+    <div class="button-container">
+        <a href="learn.html" class="back-button">🔙 Back to Learn</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2025 Learn & Play | All rights reserved.
+    </div>
 
     <script>
         function speak(text) {

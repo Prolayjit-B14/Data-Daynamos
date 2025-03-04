@@ -6,18 +6,49 @@
     <title>Shapes & Colors | Learn</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Reset and base styles */
         body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
             font-family: 'Comic Sans MS', sans-serif;
             text-align: center;
             background-color: #f9f9f9;
             margin: 0;
-            padding: 0;
         }
+
+        /* Navigation bar */
+        nav {
+            background: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main content */
+        .content {
+            flex: 1; /* Pushes footer down */
+            padding: 20px;
+        }
+
         h1 {
             color: #333;
             font-size: 2.5em;
             margin-top: 20px;
         }
+
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -27,6 +58,7 @@
             max-width: 90%;
             margin: auto;
         }
+
         .card {
             width: 120px;
             height: 120px;
@@ -34,24 +66,31 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             color: white;
             border-radius: 10px;
-            transition: transform 0.3s, background 0.3s;
             cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
         }
+
         .card:hover {
             transform: scale(1.2);
             background: #4caf50 !important;
         }
+
+        /* Shapes and Colors */
         .circle { background: #ff6b6b; border-radius: 50%; }
         .square { background: #6bcbff; }
         .triangle { background: #ffb86b; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
-        .rectangle { background: #8a7ff7; width: 150px; }
+        .rectangle { background: #8a7ff7; width: 160px; }
         .star { background: #f7d746; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
-        .oval { background: #ff85f2; border-radius: 50%; width: 150px; }
+        .oval { background: #ff85f2; border-radius: 50%; width: 160px; }
         .diamond { background: #1abc9c; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+        .pentagon { background: #ff6347; clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); }
+        .hexagon { background: #7f8c8d; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); }
+
+        /* Back button */
         .back-button {
             margin-top: 20px;
             padding: 12px 25px;
@@ -66,26 +105,66 @@
             text-decoration: none;
             display: inline-block;
         }
+
         .back-button:hover {
             background: #555;
+        }
+
+        /* Footer fixed at the bottom */
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+            position: relative;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
 
-    <h1>🔺 Learn Shapes & Colors! 🎨</h1>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="learn.html">Learn</a>
+        <a href="games.html">Games</a>
+        <a href="about.html">About</a>
+    </nav>
 
-    <div class="container">
-        <div class="card circle">Circle</div>
-        <div class="card square">Square</div>
-        <div class="card triangle">Triangle</div>
-        <div class="card rectangle">Rectangle</div>
-        <div class="card star">Star</div>
-        <div class="card oval">Oval</div>
-        <div class="card diamond">Diamond</div>
+    <!-- Main Content -->
+    <div class="content">
+        <h1>🔺 Learn Shapes & Colors! 🎨</h1>
+        <p>Click on a shape to hear its name.</p>
+
+        <div class="container">
+            <div class="card circle" onclick="speak('Circle')">Circle</div>
+            <div class="card square" onclick="speak('Square')">Square</div>
+            <div class="card triangle" onclick="speak('Triangle')">Triangle</div>
+            <div class="card rectangle" onclick="speak('Rectangle')">Rectangle</div>
+            <div class="card star" onclick="speak('Star')">Star</div>
+            <div class="card oval" onclick="speak('Oval')">Oval</div>
+            <div class="card diamond" onclick="speak('Diamond')">Diamond</div>
+            <div class="card pentagon" onclick="speak('Pentagon')">Pentagon</div>
+            <div class="card hexagon" onclick="speak('Hexagon')">Hexagon</div>
+        </div>
+
+        <a href="learn.html" class="back-button">🔙 Back to Learn</a>
     </div>
 
-    <a href="learn.html" class="back-button">🔙 Back to Learn</a>
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Learn Shapes | Designed with ❤️ by You
+    </footer>
+
+    <script>
+        function speak(text) {
+            let speech = new SpeechSynthesisUtterance(text);
+            speech.lang = 'en-US';
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
 
 </body>
 </html>
