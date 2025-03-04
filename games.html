@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Games</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Creates 2 columns */
+            gap: 20px; /* Spacing between grid items */
+            padding: 40px;
+            max-width: 1000px; /* Optional: limits container width */
+            margin: 0 auto; /* Centers the container */
+        }
+        .game-card {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            font-size: 18px;
+            text-align: left;
+        }
+        .game-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        .game-card a {
+            display: block;
+            margin-top: 10px;
+            color: #3498db;
+            text-decoration: none;
+        }
+        .game-card a:hover {
+            text-decoration: underline;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎮 Games</h1>
+    <p>Engage in fun and interactive games designed to enhance learning.</p>
+
+    <div class="container">
+        <!-- Game Cards -->
+        <div class="game-card">
+            <h3>🧩 Puzzle Games</h3>
+            <p>Solve puzzles to enhance cognitive skills and problem-solving abilities.</p>
+            <a href="puzzles.html">Play Puzzle Games</a>
+        </div>
+        <div class="game-card">
+            <h3>🔊 Phonics & Sound Games</h3>
+            <p>Learn sounds, letters, and pronunciation through interactive games.</p>
+            <a href="phonics.html">Play Phonics & Sound Games</a>
+        </div>
+        <div class="game-card">
+            <h3>🧠 Tracing Game</h3>
+            <p>Help children improve their writing skills by practicing tracing letters, numbers, and shapes.</p>
+            <a href="tracing.html">Play Brain Teasers</a>
+        </div>
+        <div class="game-card">
+            <h3>🎲 Social Emotional Play</h3>
+            <p>Help children understand and express emotions through fun social play activities.</p>
+            <a href="social-emotional-play.html">Play Strategy Games</a>
+        </div>
+        <div class="game-card">
+            <h3>🎲 Math Game</h3>
+            <p>Help children understand and express math through fun.</p>
+            <a href="game1.html">Play Math  Games</a>
+        </div>
+        <div class="game-card">
+            <h3>🎲 Word Scramble Game</h3>
+            <p>Unscramble the word with fun.</p>
+            <a href="game2.html">Play Word Games</a>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-button">🔙 Back to Home</a>
+
+</body>
+</html>

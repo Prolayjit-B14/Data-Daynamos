@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧩 Puzzle Games</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 40px;
+        }
+        .puzzle-game-card {
+            width: 80%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🧩 Puzzle Games</h1>
+    <p>Choose your favorite puzzle game and start solving to improve your cognitive skills!</p>
+
+    <div class="container">
+        <div class="puzzle-game-card">
+            <h3>Jigsaw Puzzle</h3>
+            <p>Assemble the pieces to form a beautiful picture.</p>
+            <button>Play Now</button>
+        </div>
+        <div class="puzzle-game-card">
+            <h3>Memory Match</h3>
+            <p>Match pairs of cards to enhance memory skills.</p>
+            <button>Play Now</button>
+        </div>
+
+        <a href="games.html" class="back-button">🔙 Back to Games</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive meeting platform for kids with similar disabilities">
+  <title>Connect Together</title>
+  <style>
+    /* General Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #0f0f0f;
+  background-image: url('./assets/glass_blur.png');
+  background-size: cover;
+  background-position: left bottom;
+}
+
+/* Sticky Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(31, 31, 31, 0.9);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Glassmorphic Container */
+.container {
+  background-color: rgba(31, 31, 31, 0.8);
+  width: 90%;
+  max-width: 31.25em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  padding: 5em 3em;
+  border-radius: 1em;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  text-align: center;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+
+.container:hover {
+  border-color: #23deb7;
+  box-shadow: 0 0 1em 0.05em #23deb7;
+  transition: all 0.3s ease-in-out;
+}
+
+h2 {
+  color: #ebebeb;
+}
+
+label {
+  font-size: 1em;
+  color: #999;
+}
+
+/* Input Field */
+input {
+  font-size: 1em;
+  font-weight: 600;
+  width: 100%;
+  color: #23deb7;
+  text-align: center;
+  padding: 0.5em;
+  border: 1px solid #23deb7;
+  background-color: transparent;
+  border-radius: 0.4em;
+  margin: 0.5em 0;
+}
+
+input:focus {
+  border-color: #23deb7;
+  outline: none;
+}
+
+/* Button */
+#submit-btn {
+  font-size: 1.25em;
+  font-weight: 500;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0.4em;
+  background-color: #0f0f0f;
+  border: 1px solid #23deb7;
+  outline: none;
+  cursor: pointer;
+  color: #23deb7;
+  padding: 0.6em 2em;
+  margin-top: 1em;
+  transition: all 0.3s ease-in-out;
+}
+
+#submit-btn:hover {
+  background-color: #23deb7;
+  color: #0f0f0f;
+}
+
+/* Meeting Area */
+.meeting-area {
+  margin-top: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: rgba(31, 31, 31, 0.8);
+  padding: 2rem;
+}
+
+/* Footer Always at Bottom */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(31, 31, 31, 0.9);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+  </style>
+  <link rel="icon" href="spark.ico" type="image/x-icon">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h1>Connect Together</h1>
+  </nav>
+
+  <main class="container">
+    <section class="join-meeting">
+      <h2>Join or Create a Meeting</h2>
+      <form id="meeting-form">
+        <label for="room-name">Enter Room Name:</label>
+        <input type="text" id="room-name" placeholder="e.g., hearing-impaired-group" required />
+        <button type="submit" id="submit-btn">Join Meeting</button>
+      </form>
+    </section>
+
+    <section class="meeting-area">
+      <h2>Meeting Room</h2>
+      <div id="jitsi-container"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Connect Together | Built for inclusion and accessibility</p>
+  </footer>
+
+  <script src="https://meet.jit.si/external_api.js"></script>
+  <script>
+    const form = document.getElementById("meeting-form");
+const roomNameInput = document.getElementById("room-name");
+const jitsiContainer = document.getElementById("jitsi-container");
+let jitsiApi = null;
+
+// Initialize meeting on form submission
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const roomName = roomNameInput.value.trim();
+  if (!roomName) {
+    alert("Please enter a room name.");
+    return;
+  }
+
+  // Clear previous meeting if any
+  if (jitsiApi) {
+    jitsiApi.dispose();
+    jitsiApi = null;
+  }
+
+  // Initialize Jitsi Meet
+  const domain = "meet.jit.si";
+  const options = {
+    roomName: roomName,
+    width: "100%",
+    height: 600,
+    parentNode: jitsiContainer,
+    interfaceConfigOverwrite: {
+      DEFAULT_REMOTE_DISPLAY_NAME: "Participant",
+    },
+    configOverwrite: {
+      prejoinPageEnabled: false,
+    },
+  };
+
+  jitsiApi = new JitsiMeetExternalAPI(domain, options);
+
+  // Clear input field & refocus for the next meeting
+  roomNameInput.value = "";
+  roomNameInput.focus();
+});
+
+  </script>
+
+</body>
+</html>

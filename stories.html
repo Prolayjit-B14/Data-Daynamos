@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Stories</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            max-width: 90%;
+            margin: auto;
+        }
+        .story-card {
+            width: 250px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .story-card h3 {
+            color: #333;
+            font-size: 1.5em;
+        }
+        .story-card p {
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .story-card .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .story-card .btn:hover {
+            background-color: #45a049;
+        }
+        .story-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .back-button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📚 Read Interactive Stories</h1>
+
+    <div class="container">
+        <div class="story-card">
+            <h3>The Brave Little Turtle</h3>
+            <p>A story about a small turtle with a big heart.</p>
+            <a href="story1.html" class="btn">Read Now</a>
+        </div>
+
+        <div class="story-card">
+            <h3>The Magic Balloon</h3>
+            <p>A magical journey of a little boy and his flying balloon.</p>
+            <a href="story2.html" class="btn">Read Now</a>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-button">🔙 Back to Home</a>
+
+</body>
+</html>

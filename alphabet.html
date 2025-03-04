@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabet & Words | Learn</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            max-width: 90%;
+            margin: auto;
+        }
+        .card {
+            width: 100px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            padding: 10px;
+        }
+        .card img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+        .card:hover {
+            transform: scale(1.2);
+            background: #4caf50 !important;
+        }
+        .letter-a { background: #ff6b6b; }
+        .letter-b { background: #6bcbff; }
+        .letter-c { background: #ffb86b; }
+        .letter-d { background: #8a7ff7; }
+        .letter-e { background: #f7d746; }
+        .letter-f { background: #1abc9c; }
+        .letter-g { background: #ff85f2; }
+        .letter-h { background: #ff6347; }
+        .letter-i { background: #7f8c8d; }
+        .letter-j { background: #3498db; }
+        .letter-k { background: #2ecc71; }
+        .letter-l { background: #f39c12; }
+        .letter-m { background: #9b59b6; }
+        .letter-n { background: #e74c3c; }
+        .letter-o { background: #f1c40f; }
+        .letter-p { background: #e67e22; }
+        .letter-q { background: #16a085; }
+        .letter-r { background: #2980b9; }
+        .letter-s { background: #27ae60; }
+        .letter-t { background: #d35400; }
+        .letter-u { background: #8e44ad; }
+        .letter-v { background: #2c3e50; }
+        .letter-w { background: #c0392b; }
+        .letter-x { background: #f39c12; }
+        .letter-y { background: #16a085; }
+        .letter-z { background: #7f8c8d; }
+
+        .back-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .back-button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📖 Learn the Alphabet!</h1>
+    <p>Click a letter to hear its pronunciation.</p>
+
+    <div class="container">
+        <div class="card letter-a" onclick="speak('A for Apple')">
+            <img src="assets/apple.png" alt="Apple"> A
+        </div>
+        <div class="card letter-b" onclick="speak('B for Ball')">
+            <img src="assets/ball.png" alt="Ball"> B
+        </div>
+        <div class="card letter-c" onclick="speak('C for Cat')">
+            <img src="assets/cat.png" alt="Cat"> C
+        </div>
+        <div class="card letter-d" onclick="speak('D for Dog')">
+            <img src="assets/dog.png" alt="Dog"> D
+        </div>
+        <div class="card letter-e" onclick="speak('E for Elephant')">
+            <img src="assets/elephant.png" alt="Elephant"> E
+        </div>
+        <div class="card letter-f" onclick="speak('F for Fish')">
+            <img src="assets/fish.png" alt="Fish"> F
+        </div>
+        <div class="card letter-g" onclick="speak('G for Grapes')">
+            <img src="assets/grapes.png" alt="Grapes"> G
+        </div>
+        <div class="card letter-h" onclick="speak('H for House')">
+            <img src="assets/house.png" alt="House"> H
+        </div>
+        <div class="card letter-i" onclick="speak('I for Ice cream')">
+            <img src="assets/icecream.png" alt="Ice Cream"> I
+        </div>
+        <div class="card letter-j" onclick="speak('J for Jug')">
+            <img src="assets/jug.png" alt="Jug"> J
+        </div>
+        <div class="card letter-k" onclick="speak('K for Kite')">
+            <img src="assets/kite.png" alt="Kite"> K
+        </div>
+        <div class="card letter-l" onclick="speak('L for Lion')">
+            <img src="assets/lion.png" alt="Lion"> L
+        </div>
+        <div class="card letter-m" onclick="speak('M for Mango')">
+            <img src="assets/mango.png" alt="Mango"> M
+        </div>
+        <div class="card letter-n" onclick="speak('N for Nest')">
+            <img src="assets/nest.png" alt="Nest"> N
+        </div>
+        <div class="card letter-o" onclick="speak('O for Orange')">
+            <img src="assets/orange.png" alt="Orange"> O
+        </div>
+        <div class="card letter-p" onclick="speak('P for Parrot')">
+            <img src="assets/parrot.png" alt="Parrot"> P
+        </div>
+        <div class="card letter-q" onclick="speak('Q for Queen')">
+            <img src="assets/queen.png" alt="Queen"> Q
+        </div>
+        <div class="card letter-r" onclick="speak('R for Rabbit')">
+            <img src="assets/rabbit.png" alt="Rabbit"> R
+        </div>
+        <div class="card letter-s" onclick="speak('S for Sun')">
+            <img src="assets/sun.png" alt="Sun"> S
+        </div>
+        <div class="card letter-t" onclick="speak('T for Tiger')">
+            <img src="assets/tiger.png" alt="Tiger"> T
+        </div>
+        <div class="card letter-u" onclick="speak('U for Umbrella')">
+            <img src="assets/umbrella.png" alt="Umbrella"> U
+        </div>
+        <div class="card letter-v" onclick="speak('V for Violin')">
+            <img src="assets/violin.png" alt="Violin"> V
+        </div>
+        <div class="card letter-w" onclick="speak('W for Wolf')">
+            <img src="assets/wolf.png" alt="Wolf"> W
+        </div>
+        <div class="card letter-x" onclick="speak('X for Xylophone')">
+            <img src="assets/xylophone.png" alt="Xylophone"> X
+        </div>
+        <div class="card letter-y" onclick="speak('Y for Yak')">
+            <img src="assets/yak.png" alt="Yak"> Y
+        </div>
+        <div class="card letter-z" onclick="speak('Z for Zebra')">
+            <img src="assets/zebra.png" alt="Zebra"> Z
+        </div>
+    </div>
+    
+    <a href="learn.html" class="back-button">🔙 Back to Learn</a>
+
+    <script>
+        function speak(text) {
+            let speech = new SpeechSynthesisUtterance(text);
+            speech.lang = 'en-US';
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+
+</body>
+</html>

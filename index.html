@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 0px;
+            list-style-type: none;
+            margin: 0;
+        }
+        nav ul li {
+            padding: 8px 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        nav ul li a:hover {
+            color: #4CAF50;
+        }
+
+        /* Main Content */
+        h1 {
+            color: #333;
+            font-size: 3em;
+            margin-top: 80px;
+            text-align: center;
+        }
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        /* Feature Section (3 Columns, 2 Rows) */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+        .feature-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 250px; /* Increased height to ensure content fits */
+            transition: all 0.3s ease-in-out;
+            text-decoration: none; /* Remove underlines */
+        }
+        .feature-card:hover {
+            transform: scale(1.05);
+        }
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        .feature-card p {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 15px;
+        }
+        .feature-card button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .feature-card button:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="learn.html">Learn Now</a></li>
+            <li><a href="games.html">Let's Play</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="stories.html">Story</a></li>
+            <li><a href="hear-speak.html">Hear & Speak</a></li>
+            <li><a href="settings.html">More</a></li>
+            <li><a href="parents.html">Parental Guides</a></li>
+            <li><a href="meeting.html">Connect</a></li>
+            <li><a href="doctor.html">Doctor</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Welcome to Our Learning Platform</h1>
+        <p>Interactive learning activities for children, focusing on basic education, emotional skills, and more!</p>
+
+        <!-- Feature Section (3 Columns, 2 Rows) -->
+        <div class="features">
+            <!-- Link to Alphabet & Words page -->
+            <a href="alphabet.html" class="feature-card">
+                <h3>📖 Alphabet & Words</h3>
+                <p>Learn the alphabet and simple words.</p>
+                <button>Start Learning</button>
+            </a>
+
+            <!-- Link to Numbers & Counting page -->
+            <a href="number.html" class="feature-card">
+                <h3>🔢 Numbers & Counting</h3>
+                <p>Practice counting and number recognition.</p>
+                <button>Start Learning</button>
+            </a>
+
+            <!-- Link to Shapes & Colors page -->
+            <a href="shapes.html" class="feature-card">
+                <h3>🔺 Shapes & Colors</h3>
+                <p>Identify and learn about different shapes and colors.</p>
+                <button>Start Learning</button>
+            </a>
+
+            <!-- Link to Speech & Language page -->
+            <a href="speech.html" class="feature-card">
+                <h3>🗣️ Speech & Language</h3>
+                <p>Learn pronunciation and improve communication.</p>
+                <button>Start Learning</button>
+            </a>
+
+            <!-- Link to Tracing Activities page -->
+            <a href="tracing.html" class="feature-card">
+                <h3>✍ Tracing Activities</h3>
+                <p>Practice tracing letters, numbers, and shapes.</p>
+                <button>Start Learning</button>
+            </a>
+
+            <!-- Link to Social & Emotional Play page -->
+            <a href="social-emotional-play.html" class="feature-card">
+                <h3>🎭 Social & Emotional Play</h3>
+                <p>Develop social and emotional skills through play.</p>
+                <button>Start Playing</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Learning Platform. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

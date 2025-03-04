@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hear and Speak</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background-color: #0f0f0f;
+      background-image: url(./assets/glass_blur.png);
+      background-size: cover;
+      text-align: center;
+    }
+    .container {
+      background-color: #1f1f1f;
+      width: 90%;
+      max-width: 31.25em;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      padding: 5em 3em;
+      border-radius: 1em;
+      border: 1px solid #333333;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .container:hover {
+      border-color: #23deb7;
+      box-shadow: 0 0 1em 0.05em #999999;
+      transition: all 0.15s ease-in-out;
+    }
+    h1 {
+      color: #ebebeb;
+    }
+    #word-display {
+      font-size: 2em;
+      font-weight: 600;
+      color: #23deb7;
+      margin: 1em 0;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      margin-top: 1em;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 5em;
+      margin-top: 2em;
+    }
+    button {
+      font-size: 1.25em;
+      font-weight: 500;
+      border-radius: 0.4em;
+      background-color: #0f0f0f;
+      border: 1px solid #23deb7;
+      color: #23deb7;
+      padding: 0.6em 2em;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+    }
+    button:hover {
+      color: #0f0f0f;
+      background-color: #ffffff;
+      font-weight: 700;
+      border-color: #0f0f0f;
+    }
+    #result-message {
+      font-size: 1.5em;
+      margin-top: 1em;
+      color: #ffdde0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hear and Repeat</h1>
+    <p id="word-display">Apple</p>
+    <div class="buttons">
+      <button id="hear-button">Hear 🔊</button>
+      <button id="speak-button">Speak 🎤</button>
+    </div>
+    <div class="nav-buttons">
+      <button id="prev-word">⬅</button>
+      <button id="next-word">➡</button>
+    </div>
+    <p id="result-message"></p>
+  </div>
+
+  <script>
+    const words = ["Apple", "Banana", "Cat", "Dog", "Elephant"];
+    let currentIndex = 0;
+    
+    const wordDisplay = document.getElementById("word-display");
+    const hearButton = document.getElementById("hear-button");
+    const speakButton = document.getElementById("speak-button");
+    const resultMessage = document.getElementById("result-message");
+    const prevButton = document.getElementById("prev-word");
+    const nextButton = document.getElementById("next-word");
+    
+    function updateWord() {
+      wordDisplay.textContent = words[currentIndex];
+    }
+    
+    function playWord(word) {
+      const utterance = new SpeechSynthesisUtterance(word);
+      utterance.lang = "en-US";
+      speechSynthesis.speak(utterance);
+    }
+    
+    function startRecognition() {
+      if (!('webkitSpeechRecognition' in window)) {
+        alert("Speech Recognition is not supported in your browser.");
+        return;
+      }
+      
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.interimResults = false;
+      
+      recognition.onstart = () => {
+        resultMessage.textContent = "Listening...";
+        resultMessage.style.color = "blue";
+      };
+      
+      recognition.onerror = (event) => {
+        resultMessage.textContent = "Error: " + event.error;
+        resultMessage.style.color = "red";
+      };
+      
+      recognition.onresult = (event) => {
+        const spokenWord = event.results[0][0].transcript.trim().toLowerCase();
+        if (spokenWord === words[currentIndex].toLowerCase()) {
+          resultMessage.textContent = "Correct! Well done!";
+          resultMessage.style.color = "green";
+        } else {
+          resultMessage.textContent = `You said "${spokenWord}". Try again!`;
+          resultMessage.style.color = "red";
+        }
+      };
+      
+      recognition.start();
+    }
+    
+    hearButton.addEventListener("click", () => playWord(words[currentIndex]));
+    speakButton.addEventListener("click", startRecognition);
+    
+    prevButton.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateWord();
+      }
+    });
+    
+    nextButton.addEventListener("click", () => {
+      if (currentIndex < words.length - 1) {
+        currentIndex++;
+        updateWord();
+      }
+    });
+    
+    updateWord();
+  </script>
+</body>
+</html>

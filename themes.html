@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Theme & UI Customization</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 40px;
+        }
+        .theme-card {
+            width: 80%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎨 Theme & UI Customization</h1>
+    <p>Customize the look and feel of the website by selecting a theme or adjusting UI elements.</p>
+
+    <div class="container">
+        <div class="theme-card">
+            <h3>Select a Theme</h3>
+            <button onclick="changeTheme('light')">Light</button>
+            <button onclick="changeTheme('dark')">Dark</button>
+        </div>
+        <div class="theme-card">
+            <h3>Change Font Style</h3>
+            <button onclick="changeFont('Arial')">Arial</button>
+            <button onclick="changeFont('Comic Sans MS')">Comic Sans</button>
+            <button onclick="changeFont('Times New Roman')">Times New Roman</button>
+        </div>
+
+        <a href="settings.html" class="back-button">🔙 Back to Settings</a>
+    </div>
+
+    <script>
+        function changeTheme(theme) {
+            if (theme === 'dark') {
+                document.body.style.backgroundColor = '#333';
+                document.body.style.color = '#fff';
+            } else {
+                document.body.style.backgroundColor = '#f9f9f9';
+                document.body.style.color = '#333';
+            }
+        }
+
+        function changeFont(font) {
+            document.body.style.fontFamily = font;
+        }
+    </script>
+
+</body>
+</html>
+

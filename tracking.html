@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📌 Activity Tracking</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            padding: 40px;
+        }
+        .activity-card {
+            width: 80%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📌 Activity Tracking</h1>
+    <p>Track your completed learning activities.</p>
+
+    <div class="container">
+        <div class="activity-card">
+            <h3>Alphabet Practice</h3>
+            <p>Completed: 5 activities</p>
+        </div>
+        <div class="activity-card">
+            <h3>Number Counting</h3>
+            <p>Completed: 4 activities</p>
+        </div>
+
+        <a href="dashboard.html" class="back-button">🔙 Back to Dashboard</a>
+    </div>
+
+</body>
+</html>

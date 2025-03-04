@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎥 Video Tutorials</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 40px;
+        }
+        .video-card {
+            width: 80%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎥 Video Tutorials</h1>
+    <p>Watch tutorials on how to support your child's learning journey.</p>
+
+    <div class="container">
+        <div class="video-card">
+            <h3>Supporting Kids with Dyslexia</h3>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/example_video_1" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-card">
+            <h3>Fun Activities for Kids</h3>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/example_video_2" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <a href="parents.html" class="back-button">🔙 Back to Parents & Resources</a>
+    </div>
+
+</body>
+</html>

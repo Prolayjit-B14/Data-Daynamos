@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech & Language | Learn</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            max-width: 90%;
+            margin: auto;
+        }
+        .card {
+            width: 150px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.2);
+            background: #4caf50 !important;
+        }
+        .greeting { background: #ff6b6b; }
+        .question { background: #6bcbff; }
+        .emotion { background: #ffb86b; }
+        .polite { background: #8a7ff7; }
+        .animal { background: #f7d746; }
+        .food { background: #1abc9c; }
+        .back-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .back-button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🗣️ Learn Speech & Language!</h1>
+    <p>Click on a word to hear its pronunciation.</p>
+
+    <div class="container">
+        <div class="card greeting" onclick="speak('Hello')">Hello 👋</div>
+        <div class="card greeting" onclick="speak('Good Morning')">Good Morning ☀️</div>
+        <div class="card question" onclick="speak('How are you?')">How are you? 🤔</div>
+        <div class="card emotion" onclick="speak('I am happy')">I am happy 😊</div>
+        <div class="card emotion" onclick="speak('I am sad')">I am sad 😢</div>
+        <div class="card polite" onclick="speak('Please')">Please 🙏</div>
+        <div class="card polite" onclick="speak('Thank You')">Thank You 🙌</div>
+        <div class="card animal" onclick="speak('Dog')">Dog 🐶</div>
+        <div class="card animal" onclick="speak('Cat')">Cat 🐱</div>
+        <div class="card food" onclick="speak('Apple')">Apple 🍎</div>
+        <div class="card food" onclick="speak('Banana')">Banana 🍌</div>
+    </div>
+
+    <a href="learn.html" class="back-button">🔙 Back to Learn</a>
+
+    <script>
+        function speak(text) {
+            let speech = new SpeechSynthesisUtterance(text);
+            speech.lang = 'en-US';
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+
+</body>
+</html>

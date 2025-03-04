@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👨‍👩‍👧 Parents & Resources</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            max-width: 90%;
+            margin: auto;
+        }
+        .card {
+            width: 200px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            padding: 15px;
+            text-decoration: none;
+        }
+        .card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 8px;
+        }
+        .card:hover {
+            transform: scale(1.1);
+            background: #4caf50 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>👨‍👩‍👧 Parents & Resources</h1>
+    <p>Helpful resources for parents to guide children’s learning journey.</p>
+
+    <div class="container">
+        <a href="guides.html" class="card" style="background: #FF5733;">
+            <img src="assets/guides.png" alt="Guides"> 📑 Tips & Guides
+        </a>
+        <a href="worksheets.html" class="card" style="background: #3498db;">
+            <img src="assets/worksheets.png" alt="Worksheets"> 📝 Downloadable Worksheets
+        </a>
+        <a href="videos.html" class="card" style="background: #f4b400;">
+            <img src="assets/videos.png" alt="Videos"> 🎥 Video Tutorials
+        </a>
+    </div>
+
+    <script>
+        // You can add any JavaScript functionality if needed for the page.
+    </script>
+
+</body>
+</html>
