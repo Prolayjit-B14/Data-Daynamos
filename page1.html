@@ -1,0 +1,107 @@
+page1.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo's Big Adventure</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 40px;
+        }
+        .story-card {
+            width: 80%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        .choice-button {
+            display: block;
+            margin: 10px auto;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .choice-button:hover {
+            background: #555;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function showPage(pageId) {
+            let pages = document.querySelectorAll('.story-page');
+            pages.forEach(page => page.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="page1" class="story-card story-page">
+            <h1>Leo's Big Adventure</h1>
+            <p>Leo is excited! Today, his class is going to the zoo. He grabs his backpack and heads for the door.</p>
+            <img src="leo-adventure.png" alt="Leo ready for adventure" width="100px">
+            <h3>What should Leo do?</h3>
+            <img src="leo1.webp" alt="Leo" class="Big Adventure">
+            <button class="choice-button" onclick="showPage('page2-check-bag')">Check his bag</button>
+            <button class="choice-button" onclick="showPage('page2-run-to-bus')">Run outside to the bus</button>
+        </div>
+        
+        <div id="page2-check-bag" class="story-card story-page hidden">
+            <h1>Leo checks his bag</h1>
+            <p>He finds that he has forgotten his snacks and water.</p>
+            <img src="leo2.webp" alt="Leo" class="Big Adventure">
+            <button class="choice-button" onclick="showPage('page3-ask-teacher')">Ask teacher for help</button>
+            <button class="choice-button" onclick="showPage('page3-stay-quiet')">Stay quiet</button>
+        </div>
+        
+        <div id="page2-run-to-bus" class="story-card story-page hidden">
+            <h1>Leo runs to the bus</h1>
+            <p>Uh-oh! He forgot his water and snack.</p>
+            <img src="leo3.webp" alt="Leo" class="Big Adventure">
+            <button class="choice-button" onclick="showPage('page3-ask-teacher')">Tell the teacher and ask for help</button>
+            <button class="choice-button" onclick="showPage('page3-stay-quiet')">Stay quiet and hope he’s okay</button>
+        </div>
+        
+        <div id="page3-ask-teacher" class="story-card story-page hidden">
+            <h1>Leo asks for help</h1>
+            <p>The teacher gives him a water bottle and an apple. Now he can enjoy the trip!</p>
+            <img src="leo4.webp" alt="Leo" class="Big Adventure">
+            <button class="choice-button" onclick="showPage('page4-happy-ending')">Continue to the zoo</button>
+        </div>
+        
+        <div id="page3-stay-quiet" class="story-card story-page hidden">
+            <h1>Leo stays quiet</h1>
+            <p>As the day goes on, Leo feels thirsty and tired. His teacher notices and helps him, but reminds him to always ask for help.</p>
+            <img src="leo5.webp" alt="Leo" class="Big Adventure">
+            <button class="choice-button" onclick="showPage('page4-happy-ending')">Continue to the zoo</button>
+        </div>
+        
+        <div id="page4-happy-ending" class="story-card story-page hidden">
+            <h1>Leo enjoys the zoo</h1>
+            <p>Leo and his best friend Mia have a great time. He even asks a question to the zookeeper about monkey friendships!</p>
+            <img src="leo6.webp" alt="Leo" class="Big Adventure">
+            <a href="index.html" class="choice-button">🔙 Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
