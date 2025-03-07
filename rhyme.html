@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nursery Rhymes for Special Kids</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fce4ec;
+        }
+        .rhyme {
+            font-size: 24px;
+            font-weight: bold;
+            color: #555;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        .highlight {
+            color: #ff4081;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nursery Rhymes for Special Kids</h1>
+    <button onclick="playRhyme('twinkle')">Play Twinkle Twinkle</button>
+    <button onclick="playRhyme('ringa')">Play Ringa Ringa Roses</button>
+    
+    <div id="twinkle" class="rhyme" style="display: none;">
+        <p id="line1">Twinkle, twinkle, little star,</p>
+        <p id="line2">How I wonder what you are!</p>
+        <p id="line3">Up above the world so high,</p>
+        <p id="line4">Like a diamond in the sky.</p>
+    </div>
+    
+    <div id="ringa" class="rhyme" style="display: none;">
+        <p id="rline1">Ringa ringa roses,</p>
+        <p id="rline2">Pocket full of posies,</p>
+        <p id="rline3">A-tishoo! A-tishoo!</p>
+        <p id="rline4">We all fall down.</p>
+    </div>
+    
+    <audio id="twinkleAudio" src="audio/Twinkle-Twinkle-Little-Star.mp3"></audio>
+<audio id="ringaAudio" src="audio/Ringa-Ringa-Roses.mp3"></audio>
+
+    
+    <script>
+        function playRhyme(rhyme) {
+            let audio = document.getElementById(rhyme + 'Audio');
+            let textDiv = document.getElementById(rhyme);
+            let lines = textDiv.getElementsByTagName('p');
+            
+            document.querySelectorAll('.rhyme').forEach(el => el.style.display = 'none');
+            textDiv.style.display = 'block';
+            
+            let wordIndex = 0;
+            let words = [];
+            
+            for (let line of lines) {
+                words.push(...line.innerText.split(' '));
+            }
+            
+            function highlightWord() {
+                document.querySelectorAll('.highlight').forEach(el => el.classList.remove('highlight'));
+                
+                if (wordIndex < words.length) {
+                    let currentWord = words[wordIndex];
+                    
+                    for (let line of lines) {
+                        if (line.innerText.includes(currentWord)) {
+                            let updatedText = line.innerText.replace(currentWord, `<span class='highlight'>${currentWord}</span>`);
+                            line.innerHTML = updatedText;
+                            break;
+                        }
+                    }
+                    wordIndex++;
+                    setTimeout(highlightWord, 500);
+                }
+            }
+            
+            audio.play();
+            highlightWord();
+        }
+    </script>
+</body>
+</html>
