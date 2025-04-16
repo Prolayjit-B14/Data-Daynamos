@@ -1,0 +1,93 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #f2f4f8, #c0d6ff);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .container {
+    max-width: 800px;
+    width: 90%;
+    text-align: center;
+    margin: 20px auto;
+  }
+  
+  h1 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .controls {
+    margin-bottom: 20px;
+  }
+  
+  .controls select, .controls button {
+    padding: 6px 10px;
+    font-size: 1em;
+    margin: 5px;
+  }
+  
+  .board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 12px;
+    justify-items: center;
+    padding: 10px;
+  }
+  
+  .card {
+    width: 80px;
+    height: 80px;
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    cursor: pointer;
+  }
+  
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .card .front, .card .back {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  .card .front {
+    transform: rotateY(0deg);
+  }
+  
+  .card .back {
+    transform: rotateY(180deg);
+  }
+  
+  .card.matched {
+    background-color: #b3f0b3;
+    pointer-events: none;
+  }
+  
+  .status {
+    margin-top: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #004d00;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 600px) {
+    .card {
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+    }
+  }
+  

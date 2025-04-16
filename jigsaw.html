@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Accessible Jigsaw Puzzle</title>
+  <link rel="stylesheet" href="jigsaw.css">
+</head>
+<body>
+  <h1>🧩 Accessible Jigsaw Puzzle</h1>
+
+  <label for="theme">Choose Theme: </label>
+  <select id="theme" onchange="changeTheme(this.value)">
+    <option value="animals">Animals</option>
+    <option value="fruits">Fruits</option>
+    <option value="planets">Planets</option>
+    <option value="vehicles">Vehicles</option>
+    <option value="nature">Nature</option>
+    <option value="underwater">Underwater</option>
+  </select>
+
+  <div id="pieces" class="container" aria-label="Puzzle pieces container"></div>
+  <div id="slots" class="container" aria-label="Puzzle drop slots"></div>
+
+  <button onclick="resetPuzzle()">🔄 Reset Puzzle</button>
+  <p id="status" role="alert"></p>
+
+  <!-- Audio -->
+  <audio id="correct-sound" src="sounds/correct.mp3"></audio>
+  <audio id="incorrect-sound" src="sounds/incorrect.mp3"></audio>
+
+  <script src="jigsaw.js"></script>
+</body>
+</html>
