@@ -1,0 +1,156 @@
+/* Make sure the body and html take up the full height of the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Comic Sans MS', sans-serif; /* Using a more universal font for readability */
+}
+
+/* Main Content */
+.content {
+    flex: 1; /* Make the main content area take up the remaining space */
+}
+
+/* Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    z-index: 1000;
+}
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: -20px;
+    list-style-type: none;
+    margin: 0;
+}
+nav ul li {
+    padding: 4px 15px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+nav ul li a:hover {
+    color: #4CAF50;
+}
+
+/* Main Content */
+h1 {
+    color: #333;
+    font-size: 3em;
+    margin-top: 80px;
+    text-align: center;
+}
+p {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #666;
+}
+
+/* Feature Section (3 Columns, 2 Rows) */
+.features-wrapper {
+    display: flex;
+    overflow: hidden; /* Hide the overflow to only show the scrolling part */
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.features {
+    display: flex;
+    gap: 20px;
+    animation: scroll-left 30s linear infinite; /* Animation for infinite scrolling */
+}
+
+.feature-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px; /* Increased height to ensure content fits */
+    width: 300px; /* Set fixed width for consistency */
+    transition: all 0.3s ease-in-out;
+    text-decoration: none; /* Remove underlines */
+    overflow: hidden; /* Ensure that overflow text or image does not escape the container */
+}
+.feature-card:hover {
+    transform: scale(1.05);
+}
+
+/* Image in Feature Cards */
+.feature-card img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover; /* Ensures the image fills the area without distortion */
+    border-radius: 10px;
+}
+
+.feature-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+.feature-card p {
+    font-size: 1.1em;
+    color: #444;
+    margin-bottom: 15px;
+}
+.feature-card button {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.feature-card button:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+}
+
+/* Animation for Infinite Scroll */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%); /* Move it all the way left */
+    }
+}
+
+/* Clone the items for a seamless loop */
+.features.clone {
+    margin-left: 100%; /* Ensure the cloned items start after the original */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
