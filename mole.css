@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    color: #333;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.hole {
+    width: 100px;
+    height: 100px;
+    background-color: #e1e1e1;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.hole span {
+    font-size: 40px; /* Size for the emoji */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -60px; /* Initially hidden below the hole */
+    animation: popUp 0.5s ease-in-out forwards;
+}
+
+/* Animation for the mole */
+@keyframes popUp {
+    0% {
+        bottom: -60px;
+    }
+    50% {
+        bottom: 10px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+/* Animation for hiding the mole */
+@keyframes popOut {
+    0% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 10px;
+    }
+    100% {
+        bottom: -60px;
+    }
+}
+
+#score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+#timer {
+    font-size: 24px;
+    color: red;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+}

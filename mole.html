@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-A-Mole for Focus</title>
+    <link rel="stylesheet" href="mole.css">
+</head>
+<body>
+    <h1>Whack-A-Mole for Focus</h1>
+    <p>Click on the smiling moles! Don't click on the frowning ones.</p>
+    
+    <!-- Game Timer -->
+    <p>Time Left: <span id="timer">30</span> seconds</p>
+    
+    <!-- Game Board -->
+    <div id="game-board">
+        <div class="hole" id="hole1"></div>
+        <div class="hole" id="hole2"></div>
+        <div class="hole" id="hole3"></div>
+        <div class="hole" id="hole4"></div>
+        <div class="hole" id="hole5"></div>
+        <div class="hole" id="hole6"></div>
+    </div>
+    
+    <!-- Score and Start/Stop Buttons -->
+    <p>Score: <span id="score">0</span></p>
+    <button id="start-button">Start Game</button>
+
+    <script src="mole.js"></script>
+</body>
+</html>
